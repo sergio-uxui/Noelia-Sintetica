@@ -1,0 +1,84 @@
+# Configuración general de Noelia Sintética
+
+search:
+  # Palabras clave globales para búsqueda en plataformas
+  keywords:
+    - "desarrollador python"
+    - "software engineer"
+    - "backend developer"
+    - "data engineer"
+    - "frontend developer"
+    - "fullstack developer"
+    - "UX designer"
+    - "product manager"
+    - "devops engineer"
+    - "cloud architect"
+
+  # Ubicaciones a buscar (vacío = todas)
+  locations:
+    - "Madrid"
+    - "Barcelona"
+    - "España"
+    - "Remote"
+    - "Remoto"
+
+  # Filtrar por modalidad (presencial, remoto, híbrido, todos)
+  modality: "todos"
+
+  # Máximo de días de antigüedad de la oferta (0 = sin límite)
+  max_age_days: 30
+
+# Plataformas de empleo a monitorizar
+platforms:
+  infojobs:
+    enabled: true
+    base_url: "https://www.infojobs.net"
+  linkedin:
+    enabled: true
+    base_url: "https://www.linkedin.com/jobs"
+  indeed:
+    enabled: true
+    base_url: "https://es.indeed.com"
+  tecnoempleo:
+    enabled: true
+    base_url: "https://www.tecnoempleo.com"
+  glassdoor:
+    enabled: true
+    base_url: "https://www.glassdoor.es"
+
+# Notificaciones (configura en .env)
+notifications:
+  # Canal de salida: "console", "email", "telegram"
+  channel: "console"
+  # Para email: configura SMTP_* en .env
+  email_to: ""
+  # Para telegram: configura TELEGRAM_* en .env
+  telegram_chat_id: ""
+
+# Scheduler
+scheduler:
+  # Día de la semana para monitorización semanal
+  # (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
+  day: "monday"
+  # Hora de ejecución (formato HH:MM, hora local)
+  time: "09:00"
+
+# Base de datos
+database:
+  path: "data/noelia.db"
+
+# Directorio de reportes
+reports:
+  path: "reports/"
+  format: "markdown"  # markdown o html
+
+# Límites de scraping (para ser respetuosos con los servidores)
+scraping:
+  # Segundos de espera entre peticiones al mismo dominio
+  delay_between_requests: 2.0
+  # Timeout de petición HTTP en segundos
+  request_timeout: 15
+  # Máximo de reintentos por URL
+  max_retries: 3
+  # User-Agent a usar
+  user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"

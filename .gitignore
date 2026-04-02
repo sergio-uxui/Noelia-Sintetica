@@ -1,0 +1,41 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Variables de entorno (contienen claves API)
+.env
+
+# Base de datos local
+data/
+
+# Reportes generados
+reports/*.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Logs
+*.log

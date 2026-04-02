@@ -1,0 +1,55 @@
+# Empresas a monitorizar — añade o quita según tus preferencias
+# career_url: página de empleo de la empresa
+# social_linkedin: URL del perfil de empresa en LinkedIn (opcional)
+# keywords: palabras clave extra para esta empresa (opcional)
+
+companies:
+  - name: "Telefónica"
+    career_url: "https://www.telefonica.com/es/empleo/"
+    social_linkedin: "https://www.linkedin.com/company/telefonica/jobs/"
+    keywords: ["desarrollador", "engineer", "data", "UX"]
+
+  - name: "BBVA"
+    career_url: "https://www.bbva.com/es/trabaja-en-bbva/"
+    social_linkedin: "https://www.linkedin.com/company/bbva/jobs/"
+    keywords: ["tecnología", "digital", "software"]
+
+  - name: "Inditex"
+    career_url: "https://www.inditex.com/es/trabaja-con-nosotros"
+    social_linkedin: "https://www.linkedin.com/company/inditex/jobs/"
+    keywords: ["digital", "tech", "ecommerce"]
+
+  - name: "Santander"
+    career_url: "https://www.santanderjobs.com/es"
+    social_linkedin: "https://www.linkedin.com/company/banco-santander/jobs/"
+    keywords: ["tecnología", "datos", "digital"]
+
+  - name: "Repsol"
+    career_url: "https://www.repsol.com/es/carreras/"
+    social_linkedin: "https://www.linkedin.com/company/repsol/jobs/"
+    keywords: ["digital", "IT", "datos"]
+
+  - name: "Indra"
+    career_url: "https://www.indracompany.com/es/empleo"
+    social_linkedin: "https://www.linkedin.com/company/indra/jobs/"
+    keywords: ["software", "backend", "frontend", "cloud"]
+
+  - name: "Amadeus"
+    career_url: "https://jobs.amadeus.com/"
+    social_linkedin: "https://www.linkedin.com/company/amadeus-it-group/jobs/"
+    keywords: ["engineer", "developer", "python", "java"]
+
+  - name: "Cabify"
+    career_url: "https://cabify.com/es/jobs"
+    social_linkedin: "https://www.linkedin.com/company/cabify/jobs/"
+    keywords: ["engineer", "backend", "data"]
+
+  - name: "Glovo"
+    career_url: "https://glovoapp.com/es/careers/"
+    social_linkedin: "https://www.linkedin.com/company/glovo-app/jobs/"
+    keywords: ["engineer", "tech", "data"]
+
+  - name: "Wallbox"
+    career_url: "https://wallbox.com/es_es/careers"
+    social_linkedin: "https://www.linkedin.com/company/wallbox/jobs/"
+    keywords: ["software", "engineer", "embedded"]
