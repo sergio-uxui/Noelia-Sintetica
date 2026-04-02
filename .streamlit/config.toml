@@ -1,0 +1,15 @@
+[theme]
+# Paleta cálida inspirada en el CV de Noelia Arias
+primaryColor        = "#8B5E3C"   # marrón cálido
+backgroundColor     = "#FAF7F2"   # beige suave
+secondaryBackgroundColor = "#F0E8DF"  # beige más oscuro (sidebar, cards)
+textColor           = "#2C1A0E"   # marrón oscuro
+font                = "sans serif"
+
+[server]
+headless            = true
+enableCORS          = false
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats    = false

@@ -15,8 +15,12 @@ schedule>=1.2.0
 pyyaml>=6.0.1
 python-dotenv>=1.0.0
 
-# Terminal UI
+# Terminal UI (CLI)
 rich>=13.7.0
+
+# Dashboard web
+streamlit>=1.35.0
+plotly>=5.22.0
 
 # Utilidades de fechas
 python-dateutil>=2.9.0

@@ -62,7 +62,27 @@ cp .env.example .env
 
 ---
 
-## Uso
+## Dashboard web
+
+```bash
+streamlit run dashboard/app.py
+```
+
+Abre `http://localhost:8501` en el navegador.
+
+### Páginas del dashboard
+
+| Página | Descripción |
+|:-------|:------------|
+| 🏠 **Dashboard** | KPIs, gráficos de plataforma/estado, nuevas ofertas de la semana |
+| 💼 **Ofertas** | Tabla completa con filtros por plataforma, empresa, estado y tag. Cambio de estado, exportación CSV |
+| 🤖 **Agente** | Lanzar monitorización completa o búsqueda rápida. Log en tiempo real. Historial de ejecuciones |
+| 📋 **Reportes** | Ver y descargar los reportes Markdown semanales generados |
+| ⚙️ **Configuración** | Vista de empresas, keywords, planificador y perfil de candidata |
+
+---
+
+## Uso (CLI)
 
 ### Monitorización completa (ahora)
 
