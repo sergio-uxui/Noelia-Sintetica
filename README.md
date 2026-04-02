@@ -1,14 +1,17 @@
 # 🤖 Noelia Sintética
 
-**Agente de IA para monitorización semanal de ofertas de empleo.**
+**Agente de IA para monitorización semanal de ofertas de empleo en moda y cine/TV.**
 
-Noelia es un agente basado en **Claude claude-opus-4-6** (Anthropic) que cada semana:
+Noelia Sintética busca trabajo para **Noelia Arias** — Fashion Designer y Project Manager
+de vestuario para cine y TV (Peris Costumes · La Casa del Dragón · Outlander · Wicked…).
 
-1. Revisa las **páginas de empleo** de empresas configuradas
-2. Busca en las principales **plataformas de empleo** españolas (InfoJobs, LinkedIn, Indeed, Tecnoempleo, Glassdoor)
-3. Monitoriza **perfiles de empresa** en LinkedIn
-4. **Filtra duplicados**, guarda las nuevas ofertas en SQLite
-5. Genera un **reporte Markdown** con el resumen semanal
+El agente, basado en **Claude claude-opus-4-6** (Anthropic), cada semana:
+
+1. Revisa las **páginas de empleo** de productoras, marcas de moda y medios configurados
+2. Busca en **LinkedIn, InfoJobs, Indeed y Glassdoor** con keywords del sector moda/cine/TV
+3. **Filtra por relevancia** usando el perfil de Noelia (vestuario, estilismo, diseño, patronaje)
+4. Deduplica, guarda las ofertas en SQLite y **clasifica por encaje** (top / interesante / revisar)
+5. Genera un **reporte Markdown** semanal con las mejores oportunidades
 
 ---
 

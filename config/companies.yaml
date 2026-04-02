@@ -1,55 +1,101 @@
-# Empresas a monitorizar — añade o quita según tus preferencias
-# career_url: página de empleo de la empresa
-# social_linkedin: URL del perfil de empresa en LinkedIn (opcional)
-# keywords: palabras clave extra para esta empresa (opcional)
+# Empresas a monitorizar para Noelia Arias — Fashion Designer / Vestuario Cine & TV
+# Perfil: Project manager de vestuario, estilista de moda, diseñadora.
+# Experiencia en: Peris Costumes, producciones internacionales (La Casa del Dragón,
+# Outlander, Wicked, Nosferatu, The Gilded Age), estilismo editorial freelance.
+# Herramientas: Clo 3D, Modaris, AccuMark, Photoshop, InDesign, Illustrator, Patroneo.
 
 companies:
-  - name: "Telefónica"
-    career_url: "https://www.telefonica.com/es/empleo/"
-    social_linkedin: "https://www.linkedin.com/company/telefonica/jobs/"
-    keywords: ["desarrollador", "engineer", "data", "UX"]
 
-  - name: "BBVA"
-    career_url: "https://www.bbva.com/es/trabaja-en-bbva/"
-    social_linkedin: "https://www.linkedin.com/company/bbva/jobs/"
-    keywords: ["tecnología", "digital", "software"]
+  # ---- VESTUARIO CINE Y TELEVISIÓN ----------------------------------------
 
-  - name: "Inditex"
+  - name: "Peris Costumes"
+    career_url: "https://www.periscostumes.com/trabaja-con-nosotros"
+    social_linkedin: "https://www.linkedin.com/company/peris-costumes/jobs/"
+    keywords: ["vestuario", "estilista", "project manager", "coordinadora", "joyería"]
+    notes: "Empresa actual de Noelia. Monitorizar para ascensos y nuevos proyectos."
+
+  - name: "Bambú Producciones"
+    career_url: "https://www.bambuproducciones.com/"
+    social_linkedin: "https://www.linkedin.com/company/bambu-producciones/jobs/"
+    keywords: ["vestuario", "caracterización", "estilismo", "producción"]
+    notes: "Productora de La Promesa, donde Noelia tiene créditos."
+
+  - name: "RTVE"
+    career_url: "https://www.rtve.es/rtve/trabaja-en-rtve/"
+    social_linkedin: "https://www.linkedin.com/company/rtve/jobs/"
+    keywords: ["vestuario", "estilismo", "moda", "caracterización", "producción audiovisual"]
+
+  - name: "Atresmedia"
+    career_url: "https://www.atresmediacorporacion.com/trabaja-con-nosotros/"
+    social_linkedin: "https://www.linkedin.com/company/atresmedia/jobs/"
+    keywords: ["vestuario", "estilista", "moda", "producción", "cine"]
+
+  - name: "Mediaset España"
+    career_url: "https://www.mediaset.es/corporativo/empleo/"
+    social_linkedin: "https://www.linkedin.com/company/mediaset-espana/jobs/"
+    keywords: ["vestuario", "estilista", "moda", "producción"]
+
+  - name: "Movistar Plus+"
+    career_url: "https://careers.telefonica.com/"
+    social_linkedin: "https://www.linkedin.com/company/movistar-plus/jobs/"
+    keywords: ["vestuario", "producción ficción", "estilismo", "cine", "series"]
+
+  - name: "Filmax"
+    career_url: "https://www.filmax.com/"
+    social_linkedin: "https://www.linkedin.com/company/filmax/jobs/"
+    keywords: ["vestuario", "cine", "producción", "dirección artística"]
+
+  - name: "Netflix España"
+    career_url: "https://jobs.netflix.com/"
+    social_linkedin: "https://www.linkedin.com/company/netflix/jobs/"
+    keywords: ["costume", "wardrobe", "stylist", "fashion", "vestuario", "Spain"]
+    notes: "Buscar ofertas en Spain/Madrid para producción o contenido."
+
+  - name: "Amazon Studios"
+    career_url: "https://www.amazon.jobs/en/teams/amazon-mgm-studios"
+    social_linkedin: "https://www.linkedin.com/company/amazon/jobs/"
+    keywords: ["costume designer", "wardrobe", "stylist", "production Spain"]
+
+  # ---- MODA Y DISEÑO -------------------------------------------------------
+
+  - name: "Inditex / Zara"
     career_url: "https://www.inditex.com/es/trabaja-con-nosotros"
     social_linkedin: "https://www.linkedin.com/company/inditex/jobs/"
-    keywords: ["digital", "tech", "ecommerce"]
+    keywords: ["diseño de moda", "diseñadora", "patronista", "Clo 3D", "Modaris", "estilismo"]
 
-  - name: "Santander"
-    career_url: "https://www.santanderjobs.com/es"
-    social_linkedin: "https://www.linkedin.com/company/banco-santander/jobs/"
-    keywords: ["tecnología", "datos", "digital"]
+  - name: "Mango"
+    career_url: "https://mango.com/es/careers"
+    social_linkedin: "https://www.linkedin.com/company/mango/jobs/"
+    keywords: ["diseño", "moda", "estilismo", "patronaje", "product manager moda"]
 
-  - name: "Repsol"
-    career_url: "https://www.repsol.com/es/carreras/"
-    social_linkedin: "https://www.linkedin.com/company/repsol/jobs/"
-    keywords: ["digital", "IT", "datos"]
+  - name: "Adolfo Domínguez"
+    career_url: "https://www.adolfodominguez.com/es/empleo"
+    social_linkedin: "https://www.linkedin.com/company/adolfo-dominguez/jobs/"
+    keywords: ["diseño de moda", "estilismo", "patronaje", "confección"]
 
-  - name: "Indra"
-    career_url: "https://www.indracompany.com/es/empleo"
-    social_linkedin: "https://www.linkedin.com/company/indra/jobs/"
-    keywords: ["software", "backend", "frontend", "cloud"]
+  - name: "Pronovias"
+    career_url: "https://www.pronovias.com/es/trabaja-con-nosotros"
+    social_linkedin: "https://www.linkedin.com/company/pronovias/jobs/"
+    keywords: ["diseño", "moda nupcial", "patronaje", "confección", "Clo 3D"]
 
-  - name: "Amadeus"
-    career_url: "https://jobs.amadeus.com/"
-    social_linkedin: "https://www.linkedin.com/company/amadeus-it-group/jobs/"
-    keywords: ["engineer", "developer", "python", "java"]
+  - name: "Tendam (Pedro del Hierro, Cortefiel, Springfield)"
+    career_url: "https://www.tendam.es/trabaja-con-nosotros/"
+    social_linkedin: "https://www.linkedin.com/company/tendam/jobs/"
+    keywords: ["diseño de moda", "estilismo", "producto", "patronaje"]
 
-  - name: "Cabify"
-    career_url: "https://cabify.com/es/jobs"
-    social_linkedin: "https://www.linkedin.com/company/cabify/jobs/"
-    keywords: ["engineer", "backend", "data"]
+  # ---- ESTILISMO EDITORIAL Y COMUNICACIÓN DE MODA --------------------------
 
-  - name: "Glovo"
-    career_url: "https://glovoapp.com/es/careers/"
-    social_linkedin: "https://www.linkedin.com/company/glovo-app/jobs/"
-    keywords: ["engineer", "tech", "data"]
+  - name: "Condé Nast España (Vogue, GQ)"
+    career_url: "https://www.condenast.es/"
+    social_linkedin: "https://www.linkedin.com/company/conde-nast/jobs/"
+    keywords: ["estilista", "fashion stylist", "directora de moda", "editorial"]
 
-  - name: "Wallbox"
-    career_url: "https://wallbox.com/es_es/careers"
-    social_linkedin: "https://www.linkedin.com/company/wallbox/jobs/"
-    keywords: ["software", "engineer", "embedded"]
+  - name: "Hearst España (Harper's Bazaar, Elle, Marie Claire)"
+    career_url: "https://www.hearst.es/"
+    social_linkedin: "https://www.linkedin.com/company/hearst-magazines/jobs/"
+    keywords: ["estilista de moda", "fashion editor", "directora de moda", "editorial"]
+
+  - name: "Hola"
+    career_url: "https://www.hola.com/"
+    social_linkedin: "https://www.linkedin.com/company/hola-magazine/jobs/"
+    keywords: ["estilista", "moda", "stylist", "editorial"]

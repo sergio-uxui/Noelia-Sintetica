@@ -1,66 +1,118 @@
-# Configuración general de Noelia Sintética
+# Configuración de Noelia Sintética — adaptada al perfil de Noelia Arias
+# Fashion Designer | Project Manager Vestuario Cine & TV | Estilista
+
+candidate:
+  name: "Noelia Arias"
+  profile: >
+    Fashion Designer y Project Manager de vestuario para cine y TV.
+    Experiencia en producción internacional (La Casa del Dragón, Outlander,
+    Wicked, Nosferatu, The Gilded Age, La Promesa, House of David).
+    También estilista freelance para editoriales de moda.
+  skills:
+    software: ["Clo 3D", "Modaris", "AccuMark", "Photoshop", "InDesign",
+               "Illustrator", "Premiere", "iMovie", "Processing"]
+    domain: ["patronaje", "vestuario cine", "vestuario TV", "estilismo editorial",
+             "project management", "guarnicionería", "sombrerería", "joyería de vestuario"]
+  languages: ["español", "inglés"]
+  location_preference: ["Madrid", "Barcelona", "España", "Remoto"]
 
 search:
-  # Palabras clave globales para búsqueda en plataformas
+  # Palabras clave para búsqueda en plataformas — perfil moda/cine/TV
   keywords:
-    - "desarrollador python"
-    - "software engineer"
-    - "backend developer"
-    - "data engineer"
-    - "frontend developer"
-    - "fullstack developer"
-    - "UX designer"
-    - "product manager"
-    - "devops engineer"
-    - "cloud architect"
+    # Vestuario cine y televisión
+    - "vestuario cine"
+    - "vestuario televisión"
+    - "costume designer"
+    - "wardrobe supervisor"
+    - "costume coordinator"
+    - "coordinadora vestuario"
+    - "project manager vestuario"
+    - "caracterización vestuario"
+    # Estilismo
+    - "estilista de moda"
+    - "fashion stylist"
+    - "estilismo editorial"
+    - "directora de moda"
+    - "fashion editor"
+    # Diseño de moda
+    - "diseñadora de moda"
+    - "fashion designer"
+    - "patronista moda"
+    - "patronaje Clo 3D"
+    - "Modaris patronaje"
+    # Gestión de proyectos en moda
+    - "project manager moda"
+    - "coordinadora producción moda"
+    - "responsable colección"
+    # Producción audiovisual (sector adyacente)
+    - "producción ficción series"
+    - "dirección artística cine"
 
-  # Ubicaciones a buscar (vacío = todas)
+  # Ubicaciones a buscar
   locations:
     - "Madrid"
     - "Barcelona"
     - "España"
-    - "Remote"
     - "Remoto"
-
-  # Filtrar por modalidad (presencial, remoto, híbrido, todos)
-  modality: "todos"
 
   # Máximo de días de antigüedad de la oferta (0 = sin límite)
   max_age_days: 30
 
+  # Criterios de relevancia (guía para el agente Claude)
+  relevance_criteria:
+    must_include_any:
+      - "vestuario"
+      - "moda"
+      - "estilismo"
+      - "costume"
+      - "fashion"
+      - "stylist"
+      - "diseño"
+      - "patronaje"
+      - "wardrobe"
+      - "Clo 3D"
+      - "Modaris"
+      - "producción audiovisual"
+    discard_if:
+      - "informático"
+      - "programador"
+      - "desarrollador"
+      - "contable"
+      - "conductor"
+      - "operario industrial"
+      - "teleoperador"
+
 # Plataformas de empleo a monitorizar
+# Nota: Tecnoempleo (tecnología) no es relevante para el perfil de Noelia
 platforms:
-  infojobs:
-    enabled: true
-    base_url: "https://www.infojobs.net"
   linkedin:
     enabled: true
     base_url: "https://www.linkedin.com/jobs"
+    notes: "Principal plataforma para moda y producción audiovisual"
+  infojobs:
+    enabled: true
+    base_url: "https://www.infojobs.net"
   indeed:
     enabled: true
     base_url: "https://es.indeed.com"
-  tecnoempleo:
-    enabled: true
-    base_url: "https://www.tecnoempleo.com"
   glassdoor:
     enabled: true
     base_url: "https://www.glassdoor.es"
+    notes: "Útil para marcas internacionales de moda con oficina en España"
+  tecnoempleo:
+    enabled: false
+    base_url: "https://www.tecnoempleo.com"
+    notes: "Desactivado — solo tecnología, no relevante para este perfil"
 
 # Notificaciones (configura en .env)
 notifications:
-  # Canal de salida: "console", "email", "telegram"
   channel: "console"
-  # Para email: configura SMTP_* en .env
   email_to: ""
-  # Para telegram: configura TELEGRAM_* en .env
   telegram_chat_id: ""
 
 # Scheduler
 scheduler:
-  # Día de la semana para monitorización semanal
-  # (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
   day: "monday"
-  # Hora de ejecución (formato HH:MM, hora local)
   time: "09:00"
 
 # Base de datos
@@ -70,15 +122,11 @@ database:
 # Directorio de reportes
 reports:
   path: "reports/"
-  format: "markdown"  # markdown o html
+  format: "markdown"
 
 # Límites de scraping (para ser respetuosos con los servidores)
 scraping:
-  # Segundos de espera entre peticiones al mismo dominio
   delay_between_requests: 2.0
-  # Timeout de petición HTTP en segundos
   request_timeout: 15
-  # Máximo de reintentos por URL
   max_retries: 3
-  # User-Agent a usar
   user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"

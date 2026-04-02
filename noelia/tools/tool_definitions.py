@@ -261,11 +261,13 @@ def _dispatch(tool_name, tool_input, *, scraper, platform_searcher, database, co
     if tool_name == "get_search_keywords":
         settings = config.get("settings", {})
         search = settings.get("search", {})
+        candidate = settings.get("candidate", {})
         return {
             "keywords": search.get("keywords", []),
             "locations": search.get("locations", ["España"]),
-            "modality": search.get("modality", "todos"),
             "max_age_days": search.get("max_age_days", 30),
+            "relevance_criteria": search.get("relevance_criteria", {}),
+            "candidate_profile": candidate,
         }
 
     return {"error": f"Herramienta desconocida: {tool_name}"}
