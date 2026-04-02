@@ -64,11 +64,62 @@ cp .env.example .env
 
 ## Dashboard web
 
+### Opción 1 — Local (ordenador + móvil en la misma WiFi)
+
 ```bash
-streamlit run dashboard/app.py
+./start.sh
 ```
 
-Abre `http://localhost:8501` en el navegador.
+El script detecta tu IP local y muestra las URLs para acceder desde el ordenador **y desde el móvil** (sin instalar nada en el móvil, solo abrir el navegador).
+
+```
+╔══════════════════════════════════════════════════╗
+║         👗  Noelia Sintética — Dashboard         ║
+╠══════════════════════════════════════════════════╣
+║  💻  Ordenador:  http://localhost:8501           ║
+║  📱  Móvil/red:  http://192.168.1.XX:8501        ║
+╚══════════════════════════════════════════════════╝
+```
+
+> El móvil debe estar conectado a la **misma WiFi** que el ordenador.
+
+---
+
+### Opción 2 — Railway (nube, acceso desde cualquier sitio) ⭐ Recomendado
+
+[Railway](https://railway.app) soporta Python con **disco persistente** para la base de datos.
+
+1. Crea una cuenta en [railway.app](https://railway.app) (plan Hobby desde $5/mes)
+2. **New Project → Deploy from GitHub repo** → selecciona `noelia-sintetica`
+3. En **Variables** añade:
+   - `ANTHROPIC_API_KEY` = tu clave
+   - `DB_PATH` = `/data/noelia.db`
+4. En **Volumes** → añade un volumen montado en `/data`
+5. Railway despliega automáticamente y te da una URL pública `https://xxx.railway.app`
+
+Ya puedes abrir esa URL desde el móvil en cualquier sitio.
+
+---
+
+### Opción 3 — Streamlit Community Cloud (gratis, sin BD persistente)
+
+> ⚠️ La base de datos se borra al reiniciar el servidor (~24h). Sirve para probar el dashboard, no para uso continuado.
+
+1. Sube el repo a GitHub (público o privado)
+2. Ve a [share.streamlit.io](https://share.streamlit.io) e inicia sesión con GitHub
+3. **New app** → selecciona el repo → **Main file path:** `dashboard/app.py`
+4. En **Advanced settings → Secrets** añade:
+   ```toml
+   ANTHROPIC_API_KEY = "sk-ant-..."
+   DB_PATH = "/tmp/noelia.db"
+   ```
+5. Deploy → URL pública `https://xxx.streamlit.app`
+
+---
+
+### ¿Por qué no Vercel?
+
+Vercel solo soporta funciones serverless de corta duración (Node.js / Python lambda). Streamlit necesita un proceso Python persistente, por lo que **no es compatible con Vercel**.
 
 ### Páginas del dashboard
 

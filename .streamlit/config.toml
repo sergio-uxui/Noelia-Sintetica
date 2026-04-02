@@ -1,13 +1,18 @@
 [theme]
 # Paleta cálida inspirada en el CV de Noelia Arias
-primaryColor        = "#8B5E3C"   # marrón cálido
-backgroundColor     = "#FAF7F2"   # beige suave
-secondaryBackgroundColor = "#F0E8DF"  # beige más oscuro (sidebar, cards)
-textColor           = "#2C1A0E"   # marrón oscuro
-font                = "sans serif"
+primaryColor             = "#8B5E3C"
+backgroundColor          = "#FAF7F2"
+secondaryBackgroundColor = "#F0E8DF"
+textColor                = "#2C1A0E"
+font                     = "sans serif"
 
 [server]
-headless            = true
+headless     = true
+port         = 8501
+# Escuchar en todas las interfaces → accesible desde móvil en la misma red
+address      = "0.0.0.0"
 
 [browser]
-gatherUsageStats    = false
+gatherUsageStats = false
+# Abre el navegador automáticamente solo en local
+serverAddress    = "localhost"

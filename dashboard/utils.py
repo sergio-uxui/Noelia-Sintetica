@@ -1,5 +1,6 @@
 """Utilidades compartidas entre páginas del dashboard."""
 
+import os
 import sys
 from pathlib import Path
 
@@ -42,9 +43,15 @@ TAG_COLORS = {
 
 @st.cache_resource
 def get_database():
-    """Instancia y cachea la base de datos."""
+    """Instancia y cachea la base de datos.
+    La ruta se puede sobreescribir con la variable de entorno DB_PATH
+    (útil en cloud donde /tmp es el único directorio con escritura).
+    """
     from noelia.storage.database import Database
-    db_path = load_settings().get("database", {}).get("path", "data/noelia.db")
+    db_path = (
+        os.environ.get("DB_PATH")
+        or load_settings().get("database", {}).get("path", "data/noelia.db")
+    )
     return Database(db_path)
 
 
@@ -90,39 +97,134 @@ def tag_pill(tag: str) -> str:
 
 
 def css_inject() -> None:
-    """Inyecta CSS global de la app."""
+    """Inyecta CSS global de la app — incluye reglas responsive para móvil."""
     st.markdown(
         """
         <style>
-        /* Métricas */
+        /* ---- Base -------------------------------------------------------- */
+        a { color: #8B5E3C !important; }
+        h1, h2, h3 { color: #2C1A0E; }
+        hr { border-color: #D4C4B8; }
+
+        /* ---- Métricas ---------------------------------------------------- */
         [data-testid="metric-container"] {
             background: #F0E8DF;
             border-radius: 12px;
             padding: 16px;
             border-left: 4px solid #8B5E3C;
         }
-        /* Botón primario */
+
+        /* ---- Botones ---------------------------------------------------- */
         .stButton > button[kind="primary"] {
             background-color: #8B5E3C;
             border: none;
             color: white;
             font-weight: 600;
+            min-height: 44px;          /* tap target mínimo para móvil */
         }
-        .stButton > button[kind="primary"]:hover {
-            background-color: #6E4A2E;
+        .stButton > button[kind="primary"]:hover { background-color: #6E4A2E; }
+
+        .stButton > button {
+            min-height: 44px;
+            border-radius: 8px;
         }
-        /* Links en tablas */
-        a { color: #8B5E3C !important; }
-        /* Encabezados */
-        h1, h2, h3 { color: #2C1A0E; }
-        /* Sidebar título */
-        section[data-testid="stSidebar"] h1 {
-            font-size: 1.4rem;
+
+        /* ---- Links como botones (link_button) --------------------------- */
+        .stLinkButton a {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
-        /* Dataframe compacto */
+
+        /* ---- Dataframe -------------------------------------------------- */
         .stDataFrame { border-radius: 8px; }
-        /* Divider */
-        hr { border-color: #D4C4B8; }
+
+        /* ---- Sidebar ---------------------------------------------------- */
+        section[data-testid="stSidebar"] h1 { font-size: 1.4rem; }
+        section[data-testid="stSidebar"] { padding-top: 1rem; }
+
+        /* ---- Selectbox y inputs — tap targets --------------------------- */
+        .stSelectbox > div > div,
+        .stTextInput > div > div > input,
+        .stTextArea > div > div > textarea {
+            min-height: 44px;
+        }
+
+        /* ================================================================ */
+        /* MÓVIL  (≤ 768 px)                                               */
+        /* ================================================================ */
+        @media (max-width: 768px) {
+
+            /* Tipografía */
+            h1 { font-size: 1.5rem !important; }
+            h2 { font-size: 1.25rem !important; }
+            h3 { font-size: 1.1rem !important; }
+            p, li, .stMarkdown { font-size: 0.95rem; }
+
+            /* Padding general reducido */
+            .main .block-container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+                padding-top: 1rem !important;
+            }
+
+            /* Columnas → apiladas en móvil */
+            [data-testid="column"] {
+                width: 100% !important;
+                flex: 1 1 100% !important;
+                min-width: 100% !important;
+            }
+
+            /* Métricas más compactas */
+            [data-testid="metric-container"] {
+                padding: 10px 12px;
+                margin-bottom: 8px;
+            }
+            [data-testid="metric-container"] [data-testid="stMetricValue"] {
+                font-size: 1.4rem !important;
+            }
+
+            /* Botones full-width en móvil */
+            .stButton > button { width: 100%; }
+
+            /* Expanders más grandes */
+            .streamlit-expanderHeader { font-size: 1rem; padding: 12px 8px; }
+
+            /* Ocultar sidebar en móvil por defecto (se abre con el toggle) */
+            section[data-testid="stSidebar"] {
+                min-width: 260px !important;
+                max-width: 80vw !important;
+            }
+
+            /* Gráficos a altura menor para que quepan sin scroll */
+            .js-plotly-plot { max-height: 240px; }
+
+            /* Separadores más finos */
+            hr { margin: 0.5rem 0; }
+
+            /* Tarjetas de oferta sin borde izquierdo tan prominente */
+            [style*="border-left"] { padding-left: 8px !important; }
+
+            /* Pills/tags más pequeñas */
+            span[style*="border-radius:12px"] {
+                font-size: 0.72em !important;
+                padding: 2px 6px !important;
+            }
+
+            /* Tabla exportar — ocultar en móvil */
+            .stDownloadButton button { font-size: 0.9rem; }
+        }
+
+        /* ================================================================ */
+        /* TABLET  (769 px – 1024 px)                                      */
+        /* ================================================================ */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .main .block-container {
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
+            h1 { font-size: 1.8rem !important; }
+        }
         </style>
         """,
         unsafe_allow_html=True,
