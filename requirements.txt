@@ -1,7 +1,8 @@
 # Noelia Sintética — Dependencias Python
+# Versiones testeadas con Streamlit Community Cloud
 
 # API de Claude (Anthropic)
-anthropic>=0.40.0
+anthropic>=0.88.0
 
 # HTTP y scraping
 httpx>=0.27.0
