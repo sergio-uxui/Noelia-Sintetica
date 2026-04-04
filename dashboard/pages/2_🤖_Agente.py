@@ -142,9 +142,12 @@ with run_col1:
         disabled=st.session_state.agent_running,
     )
 with run_col2:
-    api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    # Leer API key: primero st.secrets (Streamlit Cloud), luego variable de entorno
+    api_key = st.secrets.get("ANTHROPIC_API_KEY", "") if hasattr(st, "secrets") else ""
     if not api_key:
-        st.warning("⚠️ Sin ANTHROPIC_API_KEY")
+        api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        st.warning("⚠️ Sin ANTHROPIC_API_KEY — configúrala en Streamlit Cloud > Secrets")
     else:
         st.success("✅ API Key configurada")
 

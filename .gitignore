@@ -6,6 +6,9 @@ env/
 # Variables de entorno (contienen claves API)
 .env
 
+# Streamlit secrets (contienen claves API)
+.streamlit/secrets.toml
+
 # Base de datos local
 data/
 

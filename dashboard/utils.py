@@ -44,12 +44,13 @@ TAG_COLORS = {
 @st.cache_resource
 def get_database():
     """Instancia y cachea la base de datos.
-    La ruta se puede sobreescribir con la variable de entorno DB_PATH
-    (útil en cloud donde /tmp es el único directorio con escritura).
+    La ruta se puede sobreescribir con DB_PATH en st.secrets (Streamlit Cloud)
+    o como variable de entorno (local / Railway).
     """
     from noelia.storage.database import Database
     db_path = (
-        os.environ.get("DB_PATH")
+        (st.secrets.get("DB_PATH", "") if hasattr(st, "secrets") else "")
+        or os.environ.get("DB_PATH", "")
         or load_settings().get("database", {}).get("path", "data/noelia.db")
     )
     return Database(db_path)
