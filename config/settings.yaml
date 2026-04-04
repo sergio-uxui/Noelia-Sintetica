@@ -1,0 +1,132 @@
+# Configuración de Noelia Sintética — adaptada al perfil de Noelia Arias
+# Fashion Designer | Project Manager Vestuario Cine & TV | Estilista
+
+candidate:
+  name: "Noelia Arias"
+  profile: >
+    Fashion Designer y Project Manager de vestuario para cine y TV.
+    Experiencia en producción internacional (La Casa del Dragón, Outlander,
+    Wicked, Nosferatu, The Gilded Age, La Promesa, House of David).
+    También estilista freelance para editoriales de moda.
+  skills:
+    software: ["Clo 3D", "Modaris", "AccuMark", "Photoshop", "InDesign",
+               "Illustrator", "Premiere", "iMovie", "Processing"]
+    domain: ["patronaje", "vestuario cine", "vestuario TV", "estilismo editorial",
+             "project management", "guarnicionería", "sombrerería", "joyería de vestuario"]
+  languages: ["español", "inglés"]
+  location_preference: ["Madrid", "Barcelona", "España", "Remoto"]
+
+search:
+  # Palabras clave para búsqueda en plataformas — perfil moda/cine/TV
+  keywords:
+    # Vestuario cine y televisión
+    - "vestuario cine"
+    - "vestuario televisión"
+    - "costume designer"
+    - "wardrobe supervisor"
+    - "costume coordinator"
+    - "coordinadora vestuario"
+    - "project manager vestuario"
+    - "caracterización vestuario"
+    # Estilismo
+    - "estilista de moda"
+    - "fashion stylist"
+    - "estilismo editorial"
+    - "directora de moda"
+    - "fashion editor"
+    # Diseño de moda
+    - "diseñadora de moda"
+    - "fashion designer"
+    - "patronista moda"
+    - "patronaje Clo 3D"
+    - "Modaris patronaje"
+    # Gestión de proyectos en moda
+    - "project manager moda"
+    - "coordinadora producción moda"
+    - "responsable colección"
+    # Producción audiovisual (sector adyacente)
+    - "producción ficción series"
+    - "dirección artística cine"
+
+  # Ubicaciones a buscar
+  locations:
+    - "Madrid"
+    - "Barcelona"
+    - "España"
+    - "Remoto"
+
+  # Máximo de días de antigüedad de la oferta (0 = sin límite)
+  max_age_days: 30
+
+  # Criterios de relevancia (guía para el agente Claude)
+  relevance_criteria:
+    must_include_any:
+      - "vestuario"
+      - "moda"
+      - "estilismo"
+      - "costume"
+      - "fashion"
+      - "stylist"
+      - "diseño"
+      - "patronaje"
+      - "wardrobe"
+      - "Clo 3D"
+      - "Modaris"
+      - "producción audiovisual"
+    discard_if:
+      - "informático"
+      - "programador"
+      - "desarrollador"
+      - "contable"
+      - "conductor"
+      - "operario industrial"
+      - "teleoperador"
+
+# Plataformas de empleo a monitorizar
+# Nota: Tecnoempleo (tecnología) no es relevante para el perfil de Noelia
+platforms:
+  linkedin:
+    enabled: true
+    base_url: "https://www.linkedin.com/jobs"
+    notes: "Principal plataforma para moda y producción audiovisual"
+  infojobs:
+    enabled: true
+    base_url: "https://www.infojobs.net"
+  indeed:
+    enabled: true
+    base_url: "https://es.indeed.com"
+  glassdoor:
+    enabled: true
+    base_url: "https://www.glassdoor.es"
+    notes: "Útil para marcas internacionales de moda con oficina en España"
+  tecnoempleo:
+    enabled: false
+    base_url: "https://www.tecnoempleo.com"
+    notes: "Desactivado — solo tecnología, no relevante para este perfil"
+
+# Notificaciones (configura en .env)
+notifications:
+  channel: "console"
+  email_to: ""
+  telegram_chat_id: ""
+
+# Scheduler
+scheduler:
+  day: "monday"
+  time: "09:00"
+
+# Base de datos
+database:
+  path: "data/noelia.db"
+
+# Directorio de reportes
+reports:
+  path: "reports/"
+  format: "markdown"
+
+# Límites de scraping (para ser respetuosos con los servidores)
+scraping:
+  delay_between_requests: 2.0
+  request_timeout: 15
+  max_retries: 3
+  user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
