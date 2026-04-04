@@ -120,6 +120,7 @@ class NoeliAgent:
     def __init__(
         self,
         api_key: str | None = None,
+        serpapi_key: str | None = None,
         db_path: str = "data/noelia.db",
         config: dict | None = None,
     ):
@@ -128,7 +129,8 @@ class NoeliAgent:
         )
         self.database = Database(db_path)
         self.scraper = WebScraper(delay=2.5, timeout=20)
-        self.platform_searcher = PlatformSearcher(delay=2.0)
+        resolved_serpapi_key = serpapi_key or os.environ.get("SERPAPI_API_KEY", "")
+        self.platform_searcher = PlatformSearcher(api_key=resolved_serpapi_key, delay=1.0)
         self.config = config or {}
         self.tools = get_tool_definitions()
 

@@ -4,10 +4,13 @@
 # API de Claude (Anthropic)
 anthropic>=0.88.0
 
-# HTTP y scraping
+# HTTP y scraping (para páginas de empresa)
 httpx>=0.27.0
 beautifulsoup4>=4.12.0
 lxml>=5.2.0
+
+# Búsqueda de empleo via SerpApi (Google Jobs — agrega LinkedIn, Indeed, InfoJobs…)
+serpapi>=1.0.2
 
 # Planificador
 schedule>=1.2.0

@@ -62,7 +62,7 @@ class QueueLogHandler(logging.Handler):
 
 
 # ---- Runner del agente en hilo --------------------------------------------- #
-def run_agent_thread(queue: Queue, extra: str, api_key: str, db_path: str, config: dict):
+def run_agent_thread(queue: Queue, extra: str, api_key: str, serpapi_key: str, db_path: str, config: dict):
     """Ejecuta el agente en un hilo separado y envía resultados a la queue."""
     # Configurar logging para este hilo
     handler = QueueLogHandler(queue)
@@ -77,7 +77,7 @@ def run_agent_thread(queue: Queue, extra: str, api_key: str, db_path: str, confi
 
         queue.put({"level": "START", "msg": "🤖 Agente iniciado…"})
 
-        agent = NoeliAgent(api_key=api_key, db_path=db_path, config=config)
+        agent = NoeliAgent(api_key=api_key, serpapi_key=serpapi_key, db_path=db_path, config=config)
         reporter = Reporter(
             reports_dir=config.get("settings", {}).get("reports", {}).get("path", "reports")
         )
@@ -142,14 +142,17 @@ with run_col1:
         disabled=st.session_state.agent_running,
     )
 with run_col2:
-    # Leer API key: primero st.secrets (Streamlit Cloud), luego variable de entorno
-    api_key = st.secrets.get("ANTHROPIC_API_KEY", "") if hasattr(st, "secrets") else ""
+    # Leer keys: primero st.secrets (Streamlit Cloud), luego variables de entorno
+    _secrets = st.secrets if hasattr(st, "secrets") else {}
+    api_key = _secrets.get("ANTHROPIC_API_KEY", "") or os.getenv("ANTHROPIC_API_KEY", "")
+    serpapi_key = _secrets.get("SERPAPI_API_KEY", "") or os.getenv("SERPAPI_API_KEY", "")
+
     if not api_key:
-        api_key = os.getenv("ANTHROPIC_API_KEY", "")
-    if not api_key:
-        st.warning("⚠️ Sin ANTHROPIC_API_KEY — configúrala en Streamlit Cloud > Secrets")
+        st.warning("⚠️ Sin ANTHROPIC_API_KEY")
+    elif not serpapi_key:
+        st.warning("⚠️ Sin SERPAPI_API_KEY")
     else:
-        st.success("✅ API Key configurada")
+        st.success("✅ Keys configuradas")
 
 st.divider()
 
@@ -163,7 +166,7 @@ with launch_col:
             "🚀 Lanzar monitorización completa",
             type="primary",
             use_container_width=True,
-            disabled=not api_key,
+            disabled=not (api_key and serpapi_key),
         )
     else:
         st.button(
@@ -175,7 +178,7 @@ with launch_col:
 
 with stop_col:
     if st.button("🔍 Búsqueda rápida", use_container_width=True,
-                 disabled=st.session_state.agent_running or not api_key):
+                 disabled=st.session_state.agent_running or not (api_key and serpapi_key)):
         st.session_state.show_quick_search = True
 
 # Búsqueda rápida
@@ -214,7 +217,7 @@ if launch_btn and api_key and not st.session_state.agent_running:
 
     t = threading.Thread(
         target=run_agent_thread,
-        args=(q, extra_instructions, api_key, db_path, config),
+        args=(q, extra_instructions, api_key, serpapi_key, db_path, config),
         daemon=True,
     )
     t.start()
@@ -238,7 +241,7 @@ if st.session_state.get("quick_search_kw") and api_key:
                 )
         db_path = config.get("settings", {}).get("database", {}).get("path", "data/noelia.db")
         from noelia.agent import NoeliAgent
-        agent = NoeliAgent(api_key=api_key, db_path=db_path, config=config)
+        agent = NoeliAgent(api_key=api_key, serpapi_key=serpapi_key, db_path=db_path, config=config)
         result = agent.run_quick_search(kw, loc)
 
     st.success("Búsqueda completada")
